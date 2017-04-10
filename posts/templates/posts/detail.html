@@ -1,0 +1,51 @@
+{% extends 'posts/base.html' %}
+{% block title %}{{ post.post_title }}{% endblock %}
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
+
+                <!-- Blog Post -->
+
+                <!-- Title -->
+                <h1>{{ post.post_title }}</h1>
+
+                <!-- Author -->
+                <p class="lead">
+                    by <a href="#">{{ post.post_author }}</a>
+                </p>
+
+                <hr>
+
+                <!-- Date/Time -->
+                <p><span class="glyphicon glyphicon-time"></span>{{ post.post_time }}</p>
+
+                <hr>
+
+                <!-- Preview Image -->
+                <img class="img-responsive" src="{{ post.post_logo.url }}" alt="">
+
+                <hr>
+
+                <!-- Post Content -->
+                <p class="lead">
+                    {{ post.post_content }}
+                </p>
+
+                <hr>
+                <div class="fb-like" data-href="127.0.0.1:8080/{% url 'posts:detail' post.id %}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                <div class="fb-comments" data-href="127.0.0.1:8080/{% url 'posts:detail' post.id %}" data-numposts="5"></div>
+
+            </div>
+        <!-- /.row -->
+        </div>
+    <!-- /.container -->
+
+</div>
+{% endblock %}
